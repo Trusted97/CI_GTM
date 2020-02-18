@@ -22,7 +22,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
- * Class ci_gtm TEST ID GTM-NJFTMTZ
+ * Class ci_gtm
  */
 class ci_gtm
 {
