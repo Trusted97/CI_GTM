@@ -27,7 +27,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class ci_gtm
 {
     protected $CI;
-    private $gtm_id;
+    protected $gtm_id;
 
     public function __construct()
     {
