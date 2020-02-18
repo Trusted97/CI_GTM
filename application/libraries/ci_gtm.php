@@ -2,8 +2,8 @@
 /**
  * Name:    CI GTM
  * Author:  Gianluca Benucci
- *           gianlucabenucci9700@gmail.com
- *           @trusted97
+ *          gianlucabenucci9700@gmail.com
+ *          @trusted97
  *
  *
  *
@@ -15,7 +15,7 @@
  *
  * @package    CI-GTM
  * @author     Gianluca Benucci
- * @link       //Link Github
+ * @link       https://github.com/Trusted97/CI_GTM
  * @filesource
  */
 
@@ -28,16 +28,33 @@ class ci_gtm
 {
     protected $CI;
     protected $gtm_id;
+    protected $enabled;
+    protected $datalayer;
 
     public function __construct()
     {
         $this->CI =& get_instance();
 
         $this->CI->config->load('ci_gtm', true);
+
         $this->gtm_id = $this->CI->config->item('gtm_id', 'ci_gtm');
+        $this->enabled = $this->CI->config->item('enabled', 'ci_gtm');
+        $this->datalayer = [];
 
         $this->data['GTM_ID'] = $this->gtm_id;
+        $this->data['enabled'] = $this->enabled;
     }
+
+    public function set($key, $value = null)
+    {
+        $this->datalayer[$key] = $value;
+    }
+
+    public function toJson()
+    {
+        return json_encode($this->datalayer, JSON_UNESCAPED_UNICODE);
+    }
+
 
     public function gtm_head()
     {
